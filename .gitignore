@@ -1,0 +1,11 @@
+# Arquivos e diretórios gerados pelo Python
+__pycache__/
+*.py[cod]
+*$py.class
+# Arquivos gerados pelos editores de texto
+.vscode/
+
+# Outros arquivos desnecessários
+*.log
+*.pyc
+*.bak
