@@ -2,7 +2,7 @@ import math
 
 
 class City:
-    def __init__(self, identifier: int, x: int, y: int):
+    def __init__(self, identifier: int, x: float, y: float):
         self.identifier = identifier
         self.x = x
         self.y = y
