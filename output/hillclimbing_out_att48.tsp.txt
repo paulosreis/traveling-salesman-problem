@@ -1,0 +1,5 @@
+Número de iterações: 100
+Melhor ordem de visitação das cidades: [8, 2, 33, 40, 15, 21, 0, 7, 37, 30, 43, 17, 6, 27, 5, 36, 18, 26, 16, 42, 29, 35, 23, 44, 34, 3, 25, 9, 41, 1, 28, 4, 47, 38, 31, 20, 46, 19, 10, 22, 13, 24, 12, 39, 14, 11, 32, 45]
+Distância total percorrida: 39864.00322736874
+
+Valores salvos com sucesso em output/hillclimbing_out_att48.tsp.txt.
