@@ -34,7 +34,6 @@ def simulated_annealing(cities: List[City], TMax:float, k: float, Kt: int, TMin:
                     aval_vc = best_aval
             t += 1
         T = k*T
-        print(T)
 
     return vc, aval_vc
 
