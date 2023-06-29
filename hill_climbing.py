@@ -4,38 +4,36 @@ import numpy as np
 from typing import List
 from utils.output_writer import save_output_to_file
 from utils.reader import read_cities_from_file
-from utils.order import calculate_total_distance, generate_random_order
+from utils.order import calculate_total_distance, generate_random_order, generate_neighborhood, select_best_neighbor
 from models.city import City
 
 
 def hill_climbing(cities: List[City], max_iterations: int) -> tuple[List[int], float]:
     num_cities = len(cities)
+
+    #Inicializa melhor ordem
     best_order = generate_random_order(num_cities)
     best_distance = calculate_total_distance(cities, best_order, distances)
 
     t = 0
     while t < max_iterations:
-        current_order = generate_random_order(num_cities)
         local = False
+
+        #Selecionar um ponto corrente vc de forma aleatória e definir seu valor de avaliação
+        current_order = generate_random_order(num_cities)
         vc = current_order.copy()
         aval_vc = calculate_total_distance(cities, vc, distances)
 
         while not local:
-            vn = None
-            best_aval = float("inf")
+            #Selecionar todos os novos pontos em N(vc)
+            neighborhood = generate_neighborhood(vc)
 
-            for i in range(num_cities):
-                for j in range(i + 1, num_cities):
-                    new_order = vc.copy()
-                    new_order[i], new_order[j] = new_order[j], new_order[i]
-                    aval = calculate_total_distance(cities, new_order, distances)
-
-                    if aval < best_aval and len(set(new_order)) == num_cities:
-                        best_aval = aval
-                        vn = new_order
+            #Selecionar o ponto vn de N(vc) com o melhor valor de avaliação
+            vn = select_best_neighbor(cities, distances, neighborhood)
+            best_aval = calculate_total_distance(cities, vn, distances)
 
             if best_aval < aval_vc:
-                vc = vn
+                vc = vn.copy()
                 aval_vc = best_aval
             else:
                 local = True
@@ -55,11 +53,13 @@ def hill_climbing(cities: List[City], max_iterations: int) -> tuple[List[int], f
 
 
 if __name__ == "__main__":
+    #Verificar argumentos de execução do programa
     if len(sys.argv) < 3:
-        print("Erro: Número de iterações não especificado.")
+        print("Erro: Número de argumentos incorreto.")
         print("Exemplo de uso: python main.py arquivo_de_entrada numero_iteracoes")
         sys.exit(1)
 
+    #Inicialização 
     input_file = sys.argv[1]
     max_iterations = int(sys.argv[2])
 
@@ -71,6 +71,7 @@ if __name__ == "__main__":
         for j in range(num_cities):
             distances[i, j] = cities[i].calculate_distance(cities[j])
 
+    #Execução do algoritmo Hill Climbing
     best_order, best_distance = hill_climbing(cities, max_iterations)
 
     print("Melhor ordem de visitação das cidades:", [city for city in best_order])
