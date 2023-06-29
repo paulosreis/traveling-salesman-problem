@@ -1,4 +1,5 @@
 import random
+import time
 from typing import List
 import numpy as np
 from models.city import City
@@ -20,5 +21,7 @@ def calculate_total_distance(
 
 def generate_random_order(num_cities: int) -> List[int]:
     order = list(range(num_cities))
+    current_time = time.time()
+    random.seed(current_time)
     random.shuffle(order)
     return order
