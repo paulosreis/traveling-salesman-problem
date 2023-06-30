@@ -23,7 +23,6 @@ def generate_random_order(num_cities: int) -> List[int]:
     order = list(range(num_cities))
     current_time = time.time()
     random.seed(current_time)
-    print(current_time)
     random.shuffle(order)
     return order
 
