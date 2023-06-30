@@ -4,8 +4,8 @@ Este repositório contém a implementação de duas soluções para o Problema d
 
 ## Requisitos
 
-- Python 3.6 ou superior
-- matplotlib (para visualização dos resultados)
+- Python 3.10 ou superior
+- Numpy (`pip install numpy`)
 
 ## Arquivos de entrada
 
@@ -20,26 +20,27 @@ Cada linha representa um vértice do grafo completo, onde o identificador do nó
 Para executar o Hill-Climbing Iterativo, utilize o seguinte comando:
 
 ```bash
-python hill_climbing.py arquivo_de_entrada iteracoes
+python hill_climbing.py <arquivo_de_entrada> <iteracoes>
 ```
 
-Onde `arquivo_de_entrada` é o caminho para o arquivo de entrada e iteracoes é o número máximo de iterações que o algoritmo irá executar. Ao final da execução, será exibido o resultado encontrado e uma visualização gráfica do caminho percorrido.
+Onde `<arquivo_de_entrada>` é o caminho para o arquivo de entrada e `<iteracoes>` é o número máximo de iterações que o algoritmo irá executar. Ao final da execução, será exibido o resultado encontrado e uma visualização gráfica do caminho percorrido.
 
 ## Executando o Simulated Annealing
 
 Para executar o Simulated Annealing, utilize o seguinte comando:
 
 ```bash
-python simulated_annealing.py arquivo_de_entrada Tmax k KT Tmin
+python simulated_annealing.py arquivo_de_entrada <Tmax> <k> <KT> <Tmin>
 ```
 
 Onde:
 - `arquivo_de_entrada` é o caminho para o arquivo de entrada;
-- `Tmax` é a temperatura inicial, k é a razão de resfriamento;
-- `KT` é a quantidade de iterações;
-- `Tmin` é a temperatura final;
+- `<Tmax>` é a temperatura inicial, k é a razão de resfriamento;
+- `<k>` é a razão de resfriamento;
+- `<KT>` é a quantidade de iterações;
+- `<Tmin>` é a temperatura final.
 
- Ao final da execução, será exibido o resultado encontrado e uma visualização gráfica do caminho percorrido.
+ Ao final da execução, será exibido o resultado encontrado e uma visualização do caminho percorrido.
 
 ## Resultados
 
@@ -47,17 +48,19 @@ Os resultados encontrados para cada instância do TSP são apresentados na tabel
 
 | Instância | Melhor Solução Conhecida | Hill-Climbing Iterativo | Simulated Annealing |
 | --------- | ------------------------ | ----------------------- | ------------------- |
-| att48     | 10628                    | 11520                   | 11070               |
-| berlin52  | 7542                     | 8060                    | 7820                |
-| bier127   | 118282                   | 130300                  | 122500              |
-| eil76     | 538                      | 590                     | 560                 |
-| kroA100   | 21282                    | 23500                   | 22400               |
-| kroE100   | 22068                    | 24300                   | 23500               |
-| pr76      | 108159                   | 118000                  | 113000              |
-| rat99     | 1211                     | 1380                    | 1280                |
-| st70      | 675                      | 740                     | 700                 |
+| att48     | 10628                    | 47081                   | 54907               |
+| berlin52  | 7542                     | 11578                   | 18107               |
+| bier127   | 118282                   | 274471                  | 358060              |
+| eil76     | 538                      | 926                     | 1479                |
+| kroA100   | 21282                    | 52216                   | 157260              |
+| kroE100   | 22068                    | 52180                   | 98363               |
+| pr76      | 108159                   | 184384                  | 291200              |
+| rat99     | 1211                     | 2665                    | 3317                |
+| st70      | 675                      | 1147                    | 2300                |
 
-Observa-se que os resultados encontrados pelas heurísticas implementadas se aproximam das melhores soluções conhecidas, com exceção de algumas instâncias em que foram obtidos valores distantes da solução ótima. Vale ressaltar que os parâmetros utilizados para o Simulated Annealing podem ser ajustados para melhorar os resultados obtidos.
+Vale ressaltar que os parâmetros utilizados para o Simulated Annealing podem ser ajustados para melhorar os resultados obtidos.
+
+[Relatorio](https://github.com/paulosreis/traveling-salesman-problem/files/11911535/Relatorio.pdf)
 
 ## Autores
 - [Lohan Toledo Tosta](https://github.com/lohantt) 
