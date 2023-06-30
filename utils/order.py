@@ -23,6 +23,7 @@ def generate_random_order(num_cities: int) -> List[int]:
     order = list(range(num_cities))
     current_time = time.time()
     random.seed(current_time)
+    print(current_time)
     random.shuffle(order)
     return order
 
@@ -51,6 +52,18 @@ def generate_neighborhood(order: List[int]) -> List[List[int]]:
         neighbor = generate_neighbor(order, i, k)
         neighborhood.append(neighbor)
     return neighborhood
+
+    #forma mais precisa
+    #def generate_neighborhood(order: List[int]) -> List[List[int]]:
+    #neighborhood = []
+    #num_cities = len(order)
+
+    #for i in range(2, num_cities - 1):
+    #    for k in range(i + 1, num_cities):
+    #        neighbor = generate_neighbor(order, i, k)
+    #       neighborhood.append(neighbor)
+
+    #return neighborhood
 
 
 def select_best_neighbor(cities: List[int], distances: np.ndarray, neighborhood: List[List[int]]) -> List[int]:

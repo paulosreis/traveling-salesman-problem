@@ -1,0 +1,5 @@
+Número de iterações: 1000
+Melhor ordem de visitação das cidades: [25, 75, 5, 32, 21, 47, 60, 73, 63, 41, 55, 61, 0, 40, 72, 50, 15, 16, 43, 39, 8, 24, 49, 54, 23, 22, 48, 42, 1, 29, 3, 74, 67, 66, 33, 34, 13, 10, 52, 6, 18, 56, 14, 4, 68, 70, 59, 69, 19, 36, 35, 46, 20, 27, 62, 38, 71, 11, 31, 2, 17, 30, 57, 9, 64, 37, 65, 58, 53, 7, 12, 26, 45, 51, 44, 28]
+Distância total percorrida: 926.602380229783
+
+Valores salvos com sucesso em output/hillclimbing_out_eil76.tsp.txt.

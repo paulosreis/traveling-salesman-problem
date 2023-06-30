@@ -41,7 +41,7 @@ if __name__ == "__main__"    :
     #Verificar argumentos de execução do programa
     if len(sys.argv) < 6:
         print("Erro: Número de argumentos incorreto.")
-        prinf("Exemplo de uso: python main.py arquivo_de_entrada Tmax k KT Tmin")
+        print("Exemplo de uso: python main.py arquivo_de_entrada Tmax k KT Tmin")
         sys.exit(1)
 
     #Inicialização
